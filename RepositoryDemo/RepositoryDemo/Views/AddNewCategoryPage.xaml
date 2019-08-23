@@ -4,9 +4,38 @@
              x:Class="RepositoryDemo.Views.AddNewCategoryPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="DATOS DE CATEGORIA:"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+            <StackLayout>
+                <Label Text="Name:"/>
+                <Entry Placeholder="Intro Category name"
+                       Text="{Binding CategoryName}"/>
+                <Label Text="Description:"/>
+                <Entry Placeholder="Intro Description"
+                       Text="{Binding Description}"/>
+                <!--DATOS DE LOS PRODUCTOS-->
+                <Label Text="DATOS DE PRODUCTOS:"
+                        FontSize="Large"
+                   FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name:"/>
+                    <Entry Placeholder="Name"
+                           Text="{Binding TextProductName}"/>
+                    <Button Text="Add"
+                            Command="{Binding AddProductCommand}"/>
+                </StackLayout>
+                <ListView ItemsSource="{Binding Products}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding ProductName}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Label Text="{Binding MessageStatus}"/>
+            <Button Text="Guardar"
+                    Command="{Binding SaveCategoryCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
