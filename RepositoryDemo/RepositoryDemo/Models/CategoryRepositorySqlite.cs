@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 
 namespace RepositoryDemo.Models
 {
@@ -23,7 +24,7 @@ namespace RepositoryDemo.Models
             try
             {
 
-                conn.Insert(newCategory); //
+              conn.InsertWithChildren(newCategory, recursive:true); //
                 MessageStatus =
                     $"Registro ingresado. Product Id: {newCategory.Id}, Name: {newCategory.CategoryName}";
             }
@@ -38,6 +39,11 @@ namespace RepositoryDemo.Models
         public List<Category> GetCategories()
         {
            return  conn.Table<Category>().ToList();
+        }
+
+        public List<Category> GetCategoriesWithChildren()
+        {
+            return conn.GetAllWithChildren<Category>();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace RepositoryDemo.Models
 {
@@ -16,5 +17,11 @@ namespace RepositoryDemo.Models
         public decimal Price { get; set; }
 
         public int UnitsInStock { get; set; }
+
+        [ForeignKey(typeof(Category))]
+        public int CategoryId { get; set; }
+
+        [ManyToOne]
+        public Category Category { get; set; }
     }
 }
