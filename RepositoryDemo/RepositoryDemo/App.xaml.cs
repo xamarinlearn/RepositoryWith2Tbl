@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using RepositoryDemo.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RepositoryDemo
@@ -11,7 +12,7 @@ namespace RepositoryDemo
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new AddNewCategoryPage();
         }
 
         protected override void OnStart()

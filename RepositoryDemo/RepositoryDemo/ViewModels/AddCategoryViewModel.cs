@@ -14,6 +14,29 @@ namespace RepositoryDemo.ViewModels
         public AddCategoryViewModel(ICategoryRepository repository)
         {
             Repository = repository;
+
+            AddProductCommand = new Command(AddProductToProductsCollection);
+            SaveCategoryCommand = new Command(SaveNewCategory);
+        }
+
+        private void SaveNewCategory()
+        {
+            Category C = new Category
+            {
+                CategoryName = CategoryName,
+                Description = Description
+            };
+            C.Products = new List<Product>(Products);
+
+            Repository.AddNewCategory(C);
+        }
+
+        private void AddProductToProductsCollection()
+        {
+            Products.Add(new Product // TODO: detalle.
+            { ProductName = TextProductName,
+                Price =0,UnitsInStock=0
+            });
         }
 
         #region Properties
