@@ -16,6 +16,7 @@ namespace RepositoryDemo.Models
         {
             conn = new SQLiteConnection(dbPath);
             conn.CreateTable<Category>();
+            conn.CreateTable<Product>();
         }
 
         // TODO: Este método debe guardar objetos con hijos

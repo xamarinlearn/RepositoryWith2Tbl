@@ -17,6 +17,8 @@ namespace RepositoryDemo.ViewModels
 
             AddProductCommand = new Command(AddProductToProductsCollection);
             SaveCategoryCommand = new Command(SaveNewCategory);
+
+            Products = new ObservableCollection<Product>();
         }
 
         private void SaveNewCategory()
