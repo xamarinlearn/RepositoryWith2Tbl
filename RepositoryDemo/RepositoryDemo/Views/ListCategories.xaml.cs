@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,11 @@ namespace RepositoryDemo.Views
         public ListCategories()
         {
             InitializeComponent();
+            BindingContext =
+               new ViewModels.ListCategoriesViewModel
+               (new Models.CategoryRepositorySqlite
+               (Path.Combine(Environment.GetFolderPath
+               (Environment.SpecialFolder.LocalApplicationData), "Nwdb.db")));
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

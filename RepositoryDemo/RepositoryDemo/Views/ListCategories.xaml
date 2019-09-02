@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
              x:Class="RepositoryDemo.Views.ListCategories">
     <ContentPage.Content>
 
@@ -22,6 +23,11 @@
                    FontSize="Large"
                    FontAttributes="Bold"/>
             <ListView ItemsSource="{Binding Products}">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior 
+                        EventName="ItemSelected" 
+                        Command="ShowProductosOfCategorySelectedCommand"/>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding ProductName}"

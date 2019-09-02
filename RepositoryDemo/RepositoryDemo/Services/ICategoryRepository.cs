@@ -10,5 +10,7 @@ namespace RepositoryDemo.Services
         void AddNewCategory(Category newCategory);
 
         List<Category> GetCategories();
+
+        //List<Category> GetCategoriesWithChildren();
     }
 }
