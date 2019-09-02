@@ -16,7 +16,8 @@ namespace RepositoryDemo.Models
         public string CategoryName { get; set; }
         public string Description { get; set; }
 
-        [OneToMany(CascadeOperations = CascadeOperation.CascadeInsert)]
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeInsert | 
+            CascadeOperation.CascadeDelete)]
         public List<Product> Products { get; set; }
 
     }

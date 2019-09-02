@@ -24,7 +24,7 @@ namespace RepositoryDemo.Models
         {
             try
             {
-
+              
               conn.InsertWithChildren(newCategory, recursive:true); //
                 MessageStatus =
                     $"Registro ingresado. Product Id: {newCategory.Id}, Name: {newCategory.CategoryName}";
