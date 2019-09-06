@@ -10,8 +10,12 @@
                    FontSize="Large"
                    FontAttributes="Bold"/>
             <ListView ItemsSource="{Binding Categories}"
-                      SelectedItem="{Binding SelectedCategory}"
-                      ItemSelected="ListView_ItemSelected">
+                      SelectedItem="{Binding SelectedCategory}">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior 
+                        EventName="ItemSelected" 
+                        Command="{Binding ShowProductosOfCategorySelectedCommand}"/>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding CategoryName}"
@@ -23,11 +27,7 @@
                    FontSize="Large"
                    FontAttributes="Bold"/>
             <ListView ItemsSource="{Binding Products}">
-                <ListView.Behaviors>
-                    <behaviors:EventToCommandBehavior 
-                        EventName="ItemSelected" 
-                        Command="ShowProductosOfCategorySelectedCommand"/>
-                </ListView.Behaviors>
+              
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding ProductName}"

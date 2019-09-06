@@ -23,9 +23,6 @@ namespace RepositoryDemo.Views
                (Environment.SpecialFolder.LocalApplicationData), "Nwdb.db")));
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-
-        }
+     
     }
 }

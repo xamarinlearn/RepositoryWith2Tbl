@@ -20,19 +20,22 @@ namespace RepositoryDemo.ViewModels
                 (((CategoryRepositorySqlite)repository).GetCategoriesWithChildren());
 
             ShowProductosOfCategorySelectedCommand = new Command(ShowProducts);
-          
+            Products = new ObservableCollection<Product>();
         }
 
         private void ShowProducts()
         {
             Products.Clear();
 
-            Products = new List<Product>(SelectedCategory.Products);
+            foreach (Product product in SelectedCategory.Products)
+            {
+                Products.Add(product);
+            }
         }
         #region Properties
         public List<Category> Categories { get; set; }
         public Category SelectedCategory { get; set; }
-        public List<Product> Products { get; set; }
+        public ObservableCollection<Product> Products { get; set; }
         #endregion
 
         #region Commands

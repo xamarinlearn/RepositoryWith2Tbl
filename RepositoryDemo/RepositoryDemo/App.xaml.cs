@@ -12,7 +12,7 @@ namespace RepositoryDemo
         {
             InitializeComponent();
 
-            MainPage = new ListCategories();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
